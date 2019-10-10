@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ClientService } from '../client.service';
-import { Client } from '../client';
+import { ClientService } from '../shared/client.service';
+import { Client } from '../shared/client';
 
 @Component({
   selector: 'app-client',
