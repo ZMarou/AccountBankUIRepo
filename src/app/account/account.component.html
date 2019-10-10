@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()" #accountForm="ngForm">
+    <div class="form-group">
+        <label for="clientId">Please insert Client Id: </label>
+        <input type="text" class="form-control" id="clientId" required 
+                [(ngModel)]="clientId" name="clientId" #clientid="ngModel">
+        <div [hidden]="clientid.valid || clientid.pristine" class="alert alert-danger">
+            Client id is required
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!accountForm.form.valid">Add account</button>
+</form>
