@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ClientService } from '../shared/client.service';
+import { ClientService } from '../services/client.service';
 import { Client } from '../models/client';
 
 @Component({

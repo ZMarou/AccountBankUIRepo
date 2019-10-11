@@ -12,6 +12,7 @@ import { AccountComponent } from './account/account.component';
 import { OperationComponent } from './operation/operation.component';
 import { HistoryComponent } from './history/history.component';
 import { MessagesComponent } from './messages/messages.component';
+import { NonZeroValidator } from './shared/non-zero.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MessagesComponent } from './messages/messages.component';
     AccountComponent,
     OperationComponent,
     HistoryComponent,
-    MessagesComponent
+    MessagesComponent,
+    NonZeroValidator
   ],
   imports: [
     BrowserModule,

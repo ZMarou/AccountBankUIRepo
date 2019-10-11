@@ -3,10 +3,13 @@
         <label for="clientId">Please insert Client Id: </label>
         <input type="text" class="form-control" id="clientId" 
                 required [(ngModel)]="clientId" name="clientId"
-                #clientid="ngModel">
+                #clientid="ngModel" appNonZero>
         <div *ngIf="clientid.invalid && (clientid.dirty || clientid.touched)" class="alert alert-danger">
             <div *ngIf="clientid.errors.required">
-                Client Id is required.
+                Client id is required.
+            </div>
+            <div *ngIf="clientid.errors.nonZero">
+                Client id must be upper than 0.
             </div>
         </div>
     </div>

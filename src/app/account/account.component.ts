@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  clientId: number = 0;
+  clientId: number;
 
   constructor() { }
 
