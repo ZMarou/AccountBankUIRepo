@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Client } from './client';
+import { Client } from '../models/client';
 import { MessageService } from './message.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
