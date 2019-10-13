@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ClientService } from '../services/client.service';
 import { Client } from '../models/client';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../reducers/index'
+import { AddClientAction } from '../actions/client.actions';
 
 @Component({
   selector: 'app-client',
@@ -15,25 +18,26 @@ export class ClientComponent implements OnInit {
     lastName: new FormControl(''),
     email: new FormControl('')
   });*/
+  clientForm: FormGroup;
+  client$: Observable<Client>
 
-  clientForm = this.fb.group({
-    firstName: [''],
-    lastName: [''],
-    email: ['', Validators.email]});
-
-
-  constructor(private fb: FormBuilder, private clientService: ClientService) { }
+  constructor(private fb: FormBuilder, public store: Store<fromRoot.State>) { 
+    this.client$ = store.select(fromRoot.getClientState)
+  }
 
   ngOnInit() {
+    this.clientForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      email: ['', Validators.email]});
   }
 
   onSubmit() {
-    console.warn(this.clientForm.value);
     var client = new Client();
     client.firstName = this.clientForm.value.firstName;
     client.lastName = this.clientForm.value.lastName;
     client.email = this.clientForm.value.email;
-    this.clientService.addClient(client).subscribe();
+    this.store.dispatch(new AddClientAction(client))
   }
 
 }

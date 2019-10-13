@@ -20,6 +20,7 @@ export class ClientService {
     private messageService: MessageService) { }
 
   addClient(client: Client): Observable<Client>{
+    console.warn('addclient service')
     return this.http.post<Client>(this.clientUrl, client, this.httpOptions).pipe(
       tap((newClient: Client) => this.log(`added client w/ id=${newClient.id}`)),
       catchError(this.handleError<Client>('addClient'))

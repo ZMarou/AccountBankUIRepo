@@ -13,6 +13,10 @@ import { OperationComponent } from './operation/operation.component';
 import { HistoryComponent } from './history/history.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NonZeroValidator } from './shared/non-zero.directive';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers/index'
+import { clientEffects } from './effects/client.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { NonZeroValidator } from './shared/non-zero.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([clientEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

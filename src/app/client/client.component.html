@@ -17,4 +17,5 @@
     <button type="submit" [disabled]="!clientForm.valid" class="btn btn-success mb-2">Add Client</button>
 
 </form>
+Result : {{client$ | async | json}}
 <app-messages></app-messages>
